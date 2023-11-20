@@ -55,7 +55,6 @@ namespace ProyectoFinalToDo.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Email,Password,Age")] User user)
         {
             if (ModelState.IsValid)
@@ -65,6 +64,26 @@ namespace ProyectoFinalToDo.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(user);
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Auth(string email, string password)
+        {
+            if (email == null || password == null)
+            {
+                return View(nameof(Login)); // TODO: error en login
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
+            if (user != null)
+            {
+                return RedirectToAction(nameof(Index), nameof(ToDoTask));
+            }
+            return View(nameof(Login));
         }
 
         // GET: User/Edit/5

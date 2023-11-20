@@ -4,7 +4,7 @@
 
 namespace ProyectoFinalToDo.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialMigration2ndattempt : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,10 +14,10 @@ namespace ProyectoFinalToDo.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -29,7 +29,9 @@ namespace ProyectoFinalToDo.Migrations
                 name: "ToDoTask",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsCompleted = table.Column<bool>(type: "bit", nullable: false),
                     HasPomodoro = table.Column<bool>(type: "bit", nullable: false),
@@ -39,12 +41,17 @@ namespace ProyectoFinalToDo.Migrations
                 {
                     table.PrimaryKey("PK_ToDoTask", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ToDoTask_User_Id",
-                        column: x => x.Id,
+                        name: "FK_ToDoTask_User_UserId",
+                        column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ToDoTask_UserId",
+                table: "ToDoTask",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

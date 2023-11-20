@@ -57,7 +57,7 @@ namespace ProyectoFinalToDo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Description,IsCompleted,HasPomodoro,PomodoroCount")] ToDoTask toDoTask)
+        public async Task<IActionResult> Create([Bind("Id,UserId,Description,IsCompleted,HasPomodoro,PomodoroCount")] ToDoTask toDoTask)
         {
             if (ModelState.IsValid)
             {

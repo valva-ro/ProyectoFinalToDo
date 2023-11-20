@@ -15,7 +15,8 @@ namespace ProyectoFinalToDo.Data
             modelBuilder.Entity<User>()
             .HasMany(u => u.ToDoTasks)
             .WithOne(t => t.User)
-            .HasForeignKey(u => u.Id)
+            .HasForeignKey(t => t.UserId)
+            .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
         }
 
