@@ -1,0 +1,47 @@
+﻿.bg-dark-2 {
+    background-color: #6EBCE6;
+}
+
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/guy-stressed.jpg");
+    width: 100vw;
+    height: 60vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #6EBCE6;
+}
+
+.navbar-light a.navbar-brand {
+    color: #6EBCE6;
+    font-size: 1.5rem;
+}
+
+.btn-primary {
+    background-color: #6EBCE6;
+    border-color: #6EBCE6;
+}
+.btn-primary:hover {
+    background-color: #5C89E0;
+    border-color: #5C89E0;
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    border-color: #6EBCE6;
+    color: #6EBCE6;
+}
+.btn-outline-secondary:hover {
+    background-color: transparent;
+    border-color: #5C89E0;
+    color: #5C89E0;
+}

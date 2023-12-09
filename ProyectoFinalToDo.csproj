@@ -8,9 +8,13 @@
 
   <ItemGroup>
     <Compile Remove="Models\NewFolder\**" />
+    <Compile Remove="wwwroot\NewFolder\**" />
     <Content Remove="Models\NewFolder\**" />
+    <Content Remove="wwwroot\NewFolder\**" />
     <EmbeddedResource Remove="Models\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\NewFolder\**" />
     <None Remove="Models\NewFolder\**" />
+    <None Remove="wwwroot\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +31,7 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Models\NewFolder\" />
+    <Folder Include="wwwroot\images\NewFolder\" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,42 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">ToDo Tasks</h1>
+<div class="hero-section text-center">
+    <h1 class="hero-text">Bienvenido a ToDo Tasks</h1>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Organiza tus Tareas</h2>
+            <p>
+                ToDo Tasks te permite organizar tus tareas diarias de manera efectiva. Crea, edita y elimina tareas según tus necesidades.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img src="~/images/task-organization.jpg" class="img-fluid" alt="Task Organization" />
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 order-md-2">
+            <h2>Enfócate con Pomodoros</h2>
+            <p>
+                Utiliza la técnica Pomodoro para mejorar tu productividad. Marca tareas con pomodoros y sigue tu progreso.
+            </p>
+        </div>
+        <div class="col-md-6 order-md-1">
+            <img src="~/images/pomodoro-focus.jpg" class="img-fluid" alt="Pomodoro Focus" />
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 d-flex justify-content-center align-items-center flex-column">
+    <h2>Regístrate para Empezar</h2>
+    <p>
+        ¡Crea una cuenta hoy mismo y comienza a aprovechar todas las funciones de ToDo Tasks!
+    </p>
+    <a class="btn btn-dark" asp-area="" asp-controller="User" asp-action="Create">Registrarse</a>
 </div>
